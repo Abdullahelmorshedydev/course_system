@@ -35,7 +35,7 @@ class Handler extends ExceptionHandler
                 if ($e instanceof NotFoundHttpException) {
                     return $this->apiResponse([], 'Not Found', [], 404);
                 }
-                return $this->apiResponse([], 'Error', [], 400);
+                // return $this->apiResponse([], 'Error', [], 400);
             }
         });
     }

@@ -2,11 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Enums\GenderEnum;
 use App\Models\Location;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
+use App\Enums\GenderEnum;
+use App\Enums\UserRoleEnum;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -35,6 +36,7 @@ class UserFactory extends Factory
             'date_of_birth' => fake()->date(),
             'gender' => fake()->randomElement(GenderEnum::cases()),
             'location_id' => rand(6, 10),
+            'role' => fake()->randomElement(UserRoleEnum::cases()),
         ];
     }
 

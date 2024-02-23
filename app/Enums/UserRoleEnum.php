@@ -2,14 +2,16 @@
 
 namespace App\Enums;
 
-enum EmployeeRoleEnum: int
+enum UserRoleEnum: int
 {
     case EMPLOYEE = 1;
+    case STUDENT = 2;
 
     public static function values(): array
     {
         return [
             self::EMPLOYEE->value,
+            self::STUDENT->value,
         ];
     }
 
@@ -18,6 +20,7 @@ enum EmployeeRoleEnum: int
         return match ($this)
         {
             self::EMPLOYEE => __('api/enum.employee'),
+            self::STUDENT => __('api/enum.student'),
         };
     }
 }

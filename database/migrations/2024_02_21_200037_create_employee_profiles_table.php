@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('employee_profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->decimal('salary');
+            $table->tinyInteger('status')->default(1);
             $table->tinyInteger('working_type')->default(1);
             $table->string('working_hours')->nullable();
             $table->tinyInteger('working_place')->default(1);
