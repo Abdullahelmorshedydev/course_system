@@ -5,12 +5,15 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Enums\GenderEnum;
+use App\Enums\EmployeeRoleEnum;
+use App\Enums\EmployeeStatusEnum;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Employee extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -26,7 +29,10 @@ class User extends Authenticatable
         'phone',
         'date_of_birth',
         'gender',
+        'role',
         'location_id',
+        'salary',
+        'status',
     ];
 
     /**
@@ -48,7 +54,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'gender' => GenderEnum::class,
+        'role' => EmployeeRoleEnum::class,
+        'status' => EmployeeStatusEnum::class,
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(EmployeeProfile::class);
+    }
 
     public function location()
     {

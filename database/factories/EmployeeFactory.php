@@ -2,22 +2,17 @@
 
 namespace Database\Factories;
 
+use App\Enums\EmployeeRoleEnum;
 use App\Enums\GenderEnum;
-use App\Models\Location;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Employee>
  */
-class UserFactory extends Factory
+class EmployeeFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
-
     /**
      * Define the model's default state.
      *
@@ -35,16 +30,8 @@ class UserFactory extends Factory
             'date_of_birth' => fake()->date(),
             'gender' => fake()->randomElement(GenderEnum::cases()),
             'location_id' => rand(6, 10),
+            'role' => fake()->randomElement(EmployeeRoleEnum::cases()),
+            'salary' => 10000,
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
     }
 }
