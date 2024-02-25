@@ -2,45 +2,41 @@
 
 namespace App\Services\Employees;
 
-use App\Enums\UserRoleEnum;
-use App\Http\Resources\Employee\EmployeeResource;
-use App\Interfaces\Employees\EmployeeInterface;
-use App\Models\User;
-use App\Traits\ApiResponseTrait;
 use Exception;
+use App\Models\User;
+use App\Enums\UserRoleEnum;
+use App\Traits\ApiResponseTrait;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
+use App\Interfaces\Employees\EmployeeInterface;
+use App\Http\Resources\Employee\EmployeeResource;
+use App\Repositories\Employee\EmployeeRepository;
 
-class EmployeeService implements EmployeeInterface
+class EmployeeService
 {
     use ApiResponseTrait;
 
+    private $employeeRepository;
+
+    public function __construct(EmployeeRepository $employeeRepository)
+    {
+        $this->employeeRepository = $employeeRepository;
+    }
+
     public function index()
     {
-        return $this->apiResponse(User::where('role', UserRoleEnum::EMPLOYEE->value)->with('employeeProfile')->paginate(), __('api/response_message.data_retrieved'));
+        return $this->employeeRepository->index();
     }
 
     public function store(array $data)
     {
-        try {
-            DB::beginTransaction();
-            
-            $user = User::create($data);
-            $user->employeeProfile()->create($data);
-
-            DB::commit();
-            return $this->apiResponse(new EmployeeResource($user), __('api/response_message.created_success'));
-        } catch (Exception $e) {
-            DB::rollBack();
-            return $this->apiResponse([], $e->getMessage(),[]);
-        }
+        $user = $this->employeeRepository->store($data);
+        return $user;
     }
 
     public function show($employee)
     {
-        try {
-            return $this->apiResponse(new EmployeeResource($employee), __('api/response_message.data_retrieved'));
-        } catch (Exception $e) {
-            return $this->apiResponse([], $e->getMessage(),[], 417);
-        }
+        return $this->employeeRepository->show($employee);
+        // return $this->apiResponse(new EmployeeResource($employee), __('api/response_message.data_retrieved'));
     }
 }

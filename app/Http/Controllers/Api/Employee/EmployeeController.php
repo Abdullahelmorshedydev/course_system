@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Api\Employee;
 
-use App\Enums\UserRoleEnum;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Employee\Employee\EmployeeStoreRequest;
+use Exception;
 use App\Models\User;
-use App\Services\Employees\EmployeeService;
-use App\Traits\ApiResponseTrait;
+use App\Enums\UserRoleEnum;
 use Illuminate\Http\Request;
+use App\Traits\ApiResponseTrait;
+use App\Http\Controllers\Controller;
+use App\Services\Employees\EmployeeService;
+use App\Http\Resources\Employee\EmployeeResource;
+use App\Http\Requests\Api\Employee\Employee\EmployeeStoreRequest;
 
 class EmployeeController extends Controller
 {
@@ -25,7 +27,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return $this->employee->index();
+        return $this->apiResponse($this->employee->index(), __('api/response_message.data_retrieved'));
     }
 
     /**
@@ -33,7 +35,8 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeStoreRequest $request)
     {
-        return $this->employee->store($request->validated());
+        $user = $this->employee->store($request->validated());
+        return $this->apiResponse(new EmployeeResource($user), __('api/response_message.created_success'));
     }
 
     /**
@@ -41,7 +44,10 @@ class EmployeeController extends Controller
      */
     public function show(User $user)
     {
-        return $this->employee->show($user);
+        $user = $this->employee->show($user);
+        dd($user);
+        return $this->apiResponse(new EmployeeResource($user), __('api/response_message.data_retrieved'));
+        // return $this->employee->show($user);
     }
 
     /**
