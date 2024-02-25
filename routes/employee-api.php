@@ -16,6 +16,4 @@ use App\Http\Controllers\Api\Employee\EmployeeController;
 |
 */
 
-Route::apiResource('employees', EmployeeController::class)->middleware('auth:sanctum');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::apiResource('employees', EmployeeController::class);

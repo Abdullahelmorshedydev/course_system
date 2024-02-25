@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('salary');
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('working_type')->default(1);
-            $table->string('working_hours')->nullable();
+            $table->integer('working_hours');
             $table->tinyInteger('working_place')->default(1);
             $table->timestamps();
         });

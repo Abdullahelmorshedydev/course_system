@@ -30,6 +30,20 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'email.required' => __('api/employee/error.email_valid_required'),
+            'email.string' => __('api/employee/error.email_valid_string'),
+            'email.email' => __('api/employee/error.email_valid_email'),
+            'email.max' => __('api/employee/error.email_valid_max'),
+            'password.required' => __('api/employee/error.password_valid_required'),
+            'password.string' => __('api/employee/error.password_valid_string'),
+            'password.min' => __('api/employee/error.password_valid_min'),
+            'password.max' => __('api/employee/error.password_valid_max'),
+        ];
+    }
+
     public function failedValidation($validator)
     {
         return ApiResponseTrait::failedValidation($validator, [], 'Validation Error', 422);

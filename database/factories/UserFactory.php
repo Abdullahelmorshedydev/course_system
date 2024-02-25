@@ -33,7 +33,6 @@ class UserFactory extends Factory
             'password' => Hash::make('morshedy'),
             'remember_token' => Str::random(10),
             'phone' => fake()->phoneNumber(),
-            'date_of_birth' => fake()->date(),
             'gender' => fake()->randomElement(GenderEnum::cases()),
             'location_id' => rand(6, 10),
             'role' => fake()->randomElement(UserRoleEnum::cases()),

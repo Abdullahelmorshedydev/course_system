@@ -4,36 +4,36 @@ namespace App\Http\Controllers\Api\Employee;
 
 use App\Enums\UserRoleEnum;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Employee\Employee\EmployeeStoreRequest;
 use App\Models\User;
+use App\Services\Employees\EmployeeService;
 use App\Traits\ApiResponseTrait;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
     use ApiResponseTrait;
+
+    private $employee;
+
+    public function __construct(EmployeeService $employee)
+    {
+        $this->employee = $employee;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $employees = User::where('role', UserRoleEnum::EMPLOYEE->value)->with('employeeProfile')->paginate();
-        return $this->apiResponse($employees);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return $this->employee->index();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EmployeeStoreRequest $request)
     {
-        //
+        return $this->employee->store($request->validated());
     }
 
     /**
@@ -41,7 +41,7 @@ class EmployeeController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return $this->employee->show($user);
     }
 
     /**
