@@ -8,25 +8,26 @@ use App\Traits\ApiResponseTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Api\Auth\LoginRequest;
+use App\Services\AuthService;
 
 class AuthController extends Controller
 {
     use ApiResponseTrait;
 
+    private $authService;
+
+    public function __construct(AuthService $authService)
+    {
+        $this->authService = $authService;
+    }
+
     public function login(LoginRequest $request)
     {
-        $data = $request->validated();
-        if(!Auth::attempt($data)){
-            return $this->apiResponse([], 'invalid creadintials', [], 401);
-        }
-        $user = User::where('email', $data['email'])->first();
-        $user['token'] = $user->createToken('Api Token Of ' . $user->name)->plainTextToken;
-        return $this->apiResponse($user, 'Login Success');
+        return $this->authService->login($request->validated());
     }
     
     public function logout()
     {
-        Auth::user()->currentAccessToken()->delete();
-        return $this->apiResponse([], 'Logout Success');
+        return $this->authService->logout();
     }
 }

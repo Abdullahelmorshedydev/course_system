@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Api\Auth;
 
-use Illuminate\Validation\Rule;
 use App\Traits\ApiResponseTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,7 +25,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email', Rule::exists('users', 'email'), 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'max:255'],
         ];
     }

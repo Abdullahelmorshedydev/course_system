@@ -24,8 +24,8 @@ class LoginResource extends JsonResource
             'gender' => $this->gender,
             'role' => $this->role,
             'location_id' => $this->location_id,
-            'salary' => $this->salary,
-            'status' => $this->status,
+            'profile' => $this->employeeProfile,
+            'token' => $this->token,
         ];
     }
 }
