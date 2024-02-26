@@ -9,5 +9,5 @@ interface EmployeeInterface
     public function index();
     public function store(array $data);
     public function update(Model $employee, array $data);
-    public function destroy(Model $object);
+    public function destroy(Model $employee);
 }

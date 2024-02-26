@@ -21,10 +21,10 @@ class EmployeeRepository implements EmployeeInterface
     {
         try {
             DB::beginTransaction();
-            $user = User::create($data);
-            $user->employeeProfile()->create($data);
+            $employee = User::create($data);
+            $employee->employeeProfile()->create($data);
             DB::commit();
-            return $user;
+            return $employee;
         } catch (Exception $e) {
             DB::rollBack();
             throw ValidationException::withMessages([
@@ -35,6 +35,7 @@ class EmployeeRepository implements EmployeeInterface
 
     public function update($employee, $data)
     {
+        dd($employee);
         try {
             DB::beginTransaction();
             $employee->update($data);

@@ -15,18 +15,18 @@ class EmployeeController extends Controller
 {
     use ApiResponseTrait;
 
-    private $employee;
+    private $employeeService;
 
-    public function __construct(EmployeeService $employee)
+    public function __construct(EmployeeService $employeeService)
     {
-        $this->employee = $employee;
+        $this->employeeService = $employeeService;
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return $this->apiResponse(new EmployeeCollection($this->employee->index()), __('api/response_message.data_retrieved'));
+        return $this->apiResponse(new EmployeeCollection($this->employeeService->index()), __('api/response_message.data_retrieved'));
     }
 
     /**
@@ -34,7 +34,7 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeStoreRequest $request)
     {
-        return $this->apiResponse(EmployeeResource::make($this->employee->store($request->validated())), __('api/response_message.created_success'));
+        return $this->apiResponse(EmployeeResource::make($this->employeeService->store($request->validated())), __('api/response_message.created_success'));
     }
 
     /**
@@ -50,8 +50,8 @@ class EmployeeController extends Controller
      */
     public function update(EmployeeUpdateRequest $request, User $employee)
     {
-        dd($request);
-        return $this->apiResponse(EmployeeResource::make($this->employee->update($employee, $request->validated())), __('api/response_message.updated_success'));
+        dd($employee);
+        return $this->apiResponse(EmployeeResource::make($this->employeeService->update($employee, $request->validated())), __('api/response_message.updated_success'));
     }
 
     /**
@@ -59,6 +59,6 @@ class EmployeeController extends Controller
      */
     public function destroy(User $employee)
     {
-        return $this->apiResponse($this->employee->destroy($employee), __('api/response_message.deleted_success'));
+        return $this->apiResponse($this->employeeService->destroy($employee), __('api/response_message.deleted_success'));
     }
 }
