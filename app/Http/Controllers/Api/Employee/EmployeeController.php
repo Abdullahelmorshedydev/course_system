@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Api\Employee;
 
-use Exception;
 use App\Models\User;
-use App\Enums\UserRoleEnum;
-use Illuminate\Http\Request;
 use App\Traits\ApiResponseTrait;
 use App\Http\Controllers\Controller;
 use App\Services\Employees\EmployeeService;
-use App\Http\Resources\Employee\EmployeeResource;
+use App\Http\Resources\Employee\Employee\EmployeeResource;
 use App\Http\Requests\Api\Employee\Employee\EmployeeStoreRequest;
 use App\Http\Requests\Api\Employee\Employee\EmployeeUpdateRequest;
+use App\Http\Resources\Employee\Employee\EmployeeCollection;
 
 class EmployeeController extends Controller
 {
@@ -28,7 +26,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return $this->apiResponse($this->employee->index(), __('api/response_message.data_retrieved'));
+        return $this->apiResponse(new EmployeeCollection($this->employee->index()), __('api/response_message.data_retrieved'));
     }
 
     /**

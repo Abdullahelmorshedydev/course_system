@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Resources\Employee;
+namespace App\Http\Resources\Employee\Employee;
 
-use App\Enums\UserRoleEnum;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

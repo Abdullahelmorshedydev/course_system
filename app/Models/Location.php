@@ -26,12 +26,12 @@ class Location extends Model
 
     public function country()
     {
-        return $this->hasMany(Location::class, 'country_id', 'id');
+        return $this->belongsTo(Location::class, 'country_id');
     }
 
     public function cities()
     {
-        return $this->belongsTo(Location::class, 'country_id', 'id');
+        return $this->hasMany(Location::class, 'country_id');
     }
 
     public function users()
