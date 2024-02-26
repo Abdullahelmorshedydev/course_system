@@ -50,7 +50,6 @@ class EmployeeController extends Controller
      */
     public function update(EmployeeUpdateRequest $request, User $employee)
     {
-        dd($employee);
         return $this->apiResponse(EmployeeResource::make($this->employeeService->update($employee, $request->validated())), __('api/response_message.updated_success'));
     }
 

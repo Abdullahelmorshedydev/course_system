@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\Employee\Employee;
 
 use App\Enums\GenderEnum;
+use App\Enums\UserStatusEnum;
 use App\Enums\WorkingPlaceEnum;
 use App\Enums\WorkingTypeEnum;
 use App\Traits\ApiResponseTrait;
@@ -30,12 +31,13 @@ class EmployeeUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'email' => ['required', 'string', 'email', 'unique:users,email,' . $this->employee, 'max:255'],
+            'email' => ['required', 'string', 'email', Rule::unique('users', 'email')->ignore($this->employee), 'max:255'],
             'password' => ['required', 'string', 'min:6', 'max:50'],
             'phone' => ['required', 'string', 'min:9', 'max:15'],
             'gender' => ['required', 'integer', Rule::in(GenderEnum::cases())],
             'location_id' => ['required', 'integer', 'exists:locations,id'],
             'salary' => ['required', 'integer', 'min:1'],
+            'status' => ['required', 'integer', Rule::in(UserStatusEnum::cases())],
             'working_type' => ['required', 'integer', Rule::in(WorkingTypeEnum::cases())],
             'working_hours' => ['required', 'integer', 'min:1'],
             'working_place' => ['required', 'integer', Rule::in(WorkingPlaceEnum::cases())],
@@ -68,6 +70,9 @@ class EmployeeUpdateRequest extends FormRequest
             'salary.required' => __('api/employee/error.salary_valid_required'),
             'salary.integer' => __('api/employee/error.salary_valid_integer'),
             'salary.min' => __('api/employee/error.salary_valid_min'),
+            'status.required' => __('api/employee/error.status_valid_required'),
+            'status.integer' => __('api/employee/error.status_valid_integer'),
+            'status.rule' => __('api/employee/error.status_valid_rule'),
             'working_type.required' => __('api/employee/error.working_type_valid_required'),
             'working_type.integer' => __('api/employee/error.working_type_valid_integer'),
             'working_type.rule' => __('api/employee/error.working_type_valid_rule'),

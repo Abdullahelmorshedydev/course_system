@@ -35,11 +35,16 @@ class EmployeeRepository implements EmployeeInterface
 
     public function update($employee, $data)
     {
-        dd($employee);
         try {
             DB::beginTransaction();
             $employee->update($data);
-            $employee->employeeProfile()->update($data);
+            $employee->employeeProfile()->update([
+                'salary' => $data['salary'],
+                'status' => $data['status'],
+                'working_type' => $data['working_type'],
+                'working_hours' => $data['working_hours'],
+                'working_place' => $data['working_place'],               
+            ]);
             DB::commit();
             return $employee;
         } catch (Exception $e) {

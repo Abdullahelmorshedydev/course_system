@@ -41,6 +41,9 @@ return [
     'salary_valid_required' => 'Salary Is Required',
     'salary_valid_integer' => 'Salary Should Be Integer',
     'salary_valid_min' => 'Salary Minimum 1',
+    'status_valid_required' => 'Status Is Required',
+    'status_valid_integer' => 'Status Not Supported',
+    'status_valid_rule' => 'Status Not Supported',
     'working_type_valid_required' => 'Working Type Is Required',
     'working_type_valid_integer' => 'Working Type Not Supported',
     'working_type_valid_rule' => 'Working Type Not Supported',
@@ -50,5 +53,9 @@ return [
     'working_place_valid_required' => 'Working Place Is Required',
     'working_place_valid_integer' => 'Working Place Not Supported',
     'working_place_valid_rule' => 'Working Place Not Supported',
+    'site_name_valid_required' => 'Site Name Is Required',
+    'site_name_valid_string' => 'Site Name Should Be String',
+    'site_name_valid_min' => 'Site Name Length Between 3 To 255',
+    'site_name_valid_max' => 'Site Name Length Between 3 To 255',
 
 ];

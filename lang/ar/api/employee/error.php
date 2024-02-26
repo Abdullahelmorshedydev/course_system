@@ -41,6 +41,9 @@ return [
     'salary_valid_required' => 'المرتب مطلوب',
     'salary_valid_integer' => 'المرتب يجب ان يكون رقم',
     'salary_valid_min' => 'الحد الادنى للمرتب 1',
+    'status_valid_required' => 'الحالة مطلوبة',
+    'status_valid_integer' => 'الحالة غير مدعومة',
+    'status_valid_rule' => 'الحالة غير مدعومة',
     'working_type_valid_required' => 'نوع العمل مطلوب',
     'working_type_valid_integer' => 'نوع العمل غير مدعوم',
     'working_type_valid_rule' => 'نوع العمل غير مدعوم',
@@ -50,5 +53,9 @@ return [
     'working_place_valid_required' => 'مكان العمل مطلوب',
     'working_place_valid_integer' => 'مكان العمل غير مدعوم',
     'working_place_valid_rule' => 'مكان العمل غير مدعوم',
+    'site_name_valid_required' => 'اسم الموقع مطلوب',
+    'site_name_valid_string' => 'اسم الموقع يجب ان يكون نص',
+    'site_name_valid_min' => 'اسم الموقع من 3 الى 255 حرف',
+    'site_name_valid_max' => 'اسم الموقع من 3 الى 255 حرف',
 
 ];
