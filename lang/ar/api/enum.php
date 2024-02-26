@@ -8,7 +8,7 @@ return [
     'fulltime' => 'دوام كامل',
     'parttime' => 'دوام جزئى',
     'remotely' => 'عن بعد',
-    'office' => 'من المكتب',
+    'office' => 'مكتب',
     'active' => 'مفعل',
     'desactive' => 'غير مفعل',
 
