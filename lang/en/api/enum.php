@@ -11,5 +11,7 @@ return [
     'office' => 'Office',
     'active' => 'Active',
     'desactive' => 'Desactive',
+    'parent' => 'Parent',
+    'country' => 'Country',
 
 ];

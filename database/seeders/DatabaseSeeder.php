@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             LocationTableSeeder::class,
             UserTableSeeder::class,
             EmployeeProfileTableSeeder::class,
+            MajorTableSeeder::class,
         ]);
     }
 }

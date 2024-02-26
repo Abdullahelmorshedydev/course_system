@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Services\Employees\LocationService;
 use App\Http\Resources\Employee\Location\LocationResource;
 use App\Http\Resources\Employee\Location\LocationCollection;
+use App\Http\Resources\Employee\Location\SingleLocationResource;
 use App\Http\Requests\Api\Employee\Location\LocationStoreRequest;
 use App\Http\Requests\Api\Employee\Location\LocationUpdateRequest;
 
@@ -46,7 +47,7 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
-        return $this->apiResponse(LocationResource::make($location), __('api/response_message.data_retrieved'));
+        return $this->apiResponse(SingleLocationResource::make($location), __('api/response_message.data_retrieved'));
     }
 
     /**

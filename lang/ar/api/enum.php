@@ -11,5 +11,7 @@ return [
     'office' => 'مكتب',
     'active' => 'مفعل',
     'desactive' => 'غير مفعل',
+    'parent' => 'أب',
+    'country' => 'دولة',
 
 ];

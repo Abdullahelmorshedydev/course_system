@@ -5,7 +5,7 @@ namespace App\Http\Resources\Employee\Location;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class LocationResource extends JsonResource
+class SingleLocationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,6 +19,7 @@ class LocationResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'country' => $this->country ? $this->country->name : __('api/enum.country'),
+            'cities' => $this->cities,
         ];
     }
 }

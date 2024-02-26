@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Employee\Location;
+namespace App\Http\Resources\Employee\Major;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class LocationResource extends JsonResource
+class MajorResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,7 +18,7 @@ class LocationResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'country' => $this->country ? $this->country->name : __('api/enum.country'),
+            'major' => $this->major ? $this->major->name : __('api/enum.parent'),
         ];
     }
 }
