@@ -8,5 +8,7 @@ return [
     'logout_success' => 'Logout Successfully',
     'unauthorize' => 'Unauthorized',
     'created_success' => 'Created Successfully',
+    'updated_success' => 'Updated Successfully',
+    'deleted_success' => 'Deleted Successfully',
 
 ];

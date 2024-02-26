@@ -8,17 +8,16 @@ use App\Enums\UserRoleEnum;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use App\Interfaces\Employees\EmployeeInterface;
-use Illuminate\Database\Eloquent\Model;
 
 class EmployeeRepository implements EmployeeInterface
 {
-    public function index(): array
+    public function index()
     {
         $employees = User::where('role', UserRoleEnum::EMPLOYEE->value)->with('employeeProfile')->paginate();
         return $employees;
     }
 
-    public function store($data): array
+    public function store($data)
     {
         try {
             DB::beginTransaction();
@@ -34,8 +33,29 @@ class EmployeeRepository implements EmployeeInterface
         }
     }
 
-    public function show(Model $user): User
+    public function update($employee, $data)
     {
-        return $user;
+        try {
+            DB::beginTransaction();
+            $employee->update($data);
+            $employee->employeeProfile()->update($data);
+            DB::commit();
+            return $employee;
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw ValidationException::withMessages([
+                $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function destroy($employee)
+    {
+        try{
+            $employee->delete();
+            return true;
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

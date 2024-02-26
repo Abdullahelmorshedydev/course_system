@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 interface EmployeeInterface
 {
-    public function index(): array;
-    public function store(array $data): array;
-    public function show(Model $user): Model;
-    // public function update(object $object, array $data): array;
-    // public function delete(object $object): bool;
+    public function index();
+    public function store(array $data);
+    public function update(Model $employee, array $data);
+    public function destroy(Model $object);
 }

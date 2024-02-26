@@ -26,8 +26,7 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         try {
-            $user = $this->authService->login($request->validated());
-            return $this->apiResponse(new LoginResource($user), __('api/response_message.login_success'));
+            return $this->apiResponse(new LoginResource($this->authService->login($request->validated())), __('api/response_message.login_success'));
         } catch (Exception $e) {
             return $this->apiResponse([], $e->getMessage(), [], 422);
         }

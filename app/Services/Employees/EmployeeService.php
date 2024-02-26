@@ -2,14 +2,7 @@
 
 namespace App\Services\Employees;
 
-use Exception;
-use App\Models\User;
-use App\Enums\UserRoleEnum;
 use App\Traits\ApiResponseTrait;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\ValidationException;
-use App\Interfaces\Employees\EmployeeInterface;
-use App\Http\Resources\Employee\EmployeeResource;
 use App\Repositories\Employee\EmployeeRepository;
 
 class EmployeeService
@@ -28,15 +21,18 @@ class EmployeeService
         return $this->employeeRepository->index();
     }
 
-    public function store(array $data)
+    public function store($data)
     {
-        $user = $this->employeeRepository->store($data);
-        return $user;
+        return $this->employeeRepository->store($data);
     }
 
-    public function show($employee)
+    public function update($employee, $data)
     {
-        return $this->employeeRepository->show($employee);
-        // return $this->apiResponse(new EmployeeResource($employee), __('api/response_message.data_retrieved'));
+        return $this->employeeRepository->update($employee, $data);
+    }
+
+    public function destroy($employee)
+    {
+        return $this->employeeRepository->destroy($employee);
     }
 }
