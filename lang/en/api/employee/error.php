@@ -36,6 +36,8 @@ return [
     'location_id_valid_required' => 'Location Is Required',
     'location_id_valid_integer' => 'Location Not In our Records',
     'location_id_valid_exists' => 'Location Not In our Records',
+    'major_id_valid_integer' => 'Major Not In our Records',
+    'major_id_valid_exists' => 'Major Not In our Records',
     'salary_valid_required' => 'Salary Is Required',
     'salary_valid_integer' => 'Salary Should Be Integer',
     'salary_valid_min' => 'Salary Minimum 1',

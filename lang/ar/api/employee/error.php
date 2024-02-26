@@ -36,6 +36,8 @@ return [
     'location_id_valid_required' => 'المنطقة مطلوبة',
     'location_id_valid_integer' => 'المنطقة غير موجودة فى سجلاتنا',
     'location_id_valid_exists' => 'المنطقة غير موجودة فى سجلاتنا',
+    'major_id_valid_integer' => 'التخصص غير موجودة فى سجلاتنا',
+    'major_id_valid_exists' => 'التخصص غير موجودة فى سجلاتنا',
     'salary_valid_required' => 'المرتب مطلوب',
     'salary_valid_integer' => 'المرتب يجب ان يكون رقم',
     'salary_valid_min' => 'الحد الادنى للمرتب 1',
