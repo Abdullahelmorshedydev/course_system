@@ -9,7 +9,7 @@ class Setting extends Model
 {
     use HasFactory;
 
-    public static $img_path = 'uploads/settings/';
+    const ImgPath = 'uploads/settings/';
 
     protected $fillable = [
         'key',

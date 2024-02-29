@@ -57,5 +57,8 @@ return [
     'site_name_valid_string' => 'Site Name Should Be String',
     'site_name_valid_min' => 'Site Name Length Between 3 To 255',
     'site_name_valid_max' => 'Site Name Length Between 3 To 255',
+    'image_valid' => 'Image Should Be an image',
+    'mimes_valid' => 'Image mime not supported',
+    'mimetype_valid' => 'Image type not supported',
 
 ];

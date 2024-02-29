@@ -10,7 +10,7 @@ class Major extends Model
 {
     use HasFactory, HasTranslations;
 
-    public static $img_path = 'uploads/majors/';
+    const ImgPath = 'uploads/majors/';
 
     public $translatable = ['name', 'slug'];
 

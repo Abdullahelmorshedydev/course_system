@@ -37,10 +37,7 @@ class MajorController extends Controller
      */
     public function store(MajorStoreRequest $request)
     {
-        $data = $request->validated();
-        $data['name'] = TranslateTrait::translate($data['name_en'], $data['name_ar']);
-        $data['slug'] = TranslateTrait::translate($data['name_en'], $data['name_ar'], true);
-        return $this->apiResponse(MajorResource::make($this->majorService->store($data)), __('api/response_message.created_success'));
+        return $this->apiResponse(MajorResource::make($this->majorService->store($request->all())), __('api/response_message.created_success'));
     }
 
     /**
@@ -56,10 +53,7 @@ class MajorController extends Controller
      */
     public function update(MajorUpdateRequest $request, Major $major)
     {
-        $data = $request->validated();
-        $data['name'] = TranslateTrait::translate($data['name_en'], $data['name_ar']);
-        $data['slug'] = TranslateTrait::translate($data['name_en'], $data['name_ar'], true);
-        return $this->apiResponse(MajorResource::make($this->majorService->update($major, $data)), __('api/response_message.updated_success'));
+        return $this->apiResponse(MajorResource::make($this->majorService->update($major, $request->all())), __('api/response_message.updated_success'));
     }
 
     /**

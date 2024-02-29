@@ -4,11 +4,12 @@ namespace App\Http\Requests\Api\Employee\Major;
 
 use Illuminate\Validation\Rule;
 use App\Traits\ApiResponseTrait;
+use App\Traits\TranslateTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MajorStoreRequest extends FormRequest
 {
-    use ApiResponseTrait;
+    use ApiResponseTrait, TranslateTrait;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -48,6 +49,22 @@ class MajorStoreRequest extends FormRequest
             'major_id.integer' => __('api/employee/error.major_id_valid_integer'),
             'major_id.exists' => __('api/employee/error.major_id_valid_exists'),
         ];
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'name' => TranslateTrait::translate($this->name_en, $this->name_ar),
+            'slug' => TranslateTrait::translate($this->name_en, $this->name_ar, true),
+        ]);
+    }
+
+    protected function passedValidation()
+    {
+        $this->merge([
+            'name' => TranslateTrait::translate($this->name_en, $this->name_ar),
+            'slug' => TranslateTrait::translate($this->name_en, $this->name_ar, true),
+        ]);
     }
 
     public function failedValidation($validator)

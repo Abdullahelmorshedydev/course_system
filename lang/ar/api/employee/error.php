@@ -57,5 +57,8 @@ return [
     'site_name_valid_string' => 'اسم الموقع يجب ان يكون نص',
     'site_name_valid_min' => 'اسم الموقع من 3 الى 255 حرف',
     'site_name_valid_max' => 'اسم الموقع من 3 الى 255 حرف',
+    'image_valid' => 'الصورة غير صالحة',
+    'mimes_valid' => 'امتداد الصورة غير مدعوم',
+    'mimetype_valid' => 'نوع الصورة غير مدعوم',
 
 ];

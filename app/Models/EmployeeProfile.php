@@ -12,7 +12,7 @@ class EmployeeProfile extends Model
 {
     use HasFactory;
 
-    public static $img_path = 'uploads/employees/';
+    const ImgPath = 'uploads/employees/';
 
     protected $fillable = [
         'user_id',
