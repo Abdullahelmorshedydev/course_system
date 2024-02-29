@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Employee\CourseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Employee\EmployeeController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\Api\Employee\SettingsController;
 Route::apiResource('employees', EmployeeController::class);
 Route::apiResource('locations', LocationController::class);
 Route::apiResource('majors', MajorController::class);
+Route::apiResource('courses', CourseController::class);
 
 Route::prefix('/settings')->as('settigns.')->group(function(){
 
