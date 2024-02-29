@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\Employee\Employee;
 
 use App\Enums\GenderEnum;
+use App\Enums\UserRoleEnum;
 use App\Enums\WorkingPlaceEnum;
 use App\Enums\WorkingTypeEnum;
 use App\Traits\ApiResponseTrait;
@@ -33,12 +34,13 @@ class EmployeeStoreRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'unique:users,email', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'max:50'],
             'phone' => ['required', 'string', 'min:9', 'max:15'],
+            'role' => ['required', 'integer', 'min:1', Rule::in(UserRoleEnum::cases())],
             'gender' => ['required', 'integer', Rule::in(GenderEnum::cases())],
             'location_id' => ['required', 'integer', 'exists:locations,id'],
             'salary' => ['required', 'integer', 'min:1'],
-            'working_type' => ['required', 'integer', Rule::in(WorkingTypeEnum::cases())],
-            'working_hours' => ['required', 'integer', 'min:1'],
-            'working_place' => ['required', 'integer', Rule::in(WorkingPlaceEnum::cases())],
+            'working_type' => ['nullable', 'integer', Rule::in(WorkingTypeEnum::cases())],
+            'working_hours' => ['nullable', 'integer', 'min:1'],
+            'working_place' => ['nullable', 'integer', Rule::in(WorkingPlaceEnum::cases())],
         ];
     }
 
@@ -62,19 +64,19 @@ class EmployeeStoreRequest extends FormRequest
             'phone.string' => __('api/employee/error.phone_valid_string'),
             'phone.min' => __('api/employee/error.phone_valid_min'),
             'phone.max' => __('api/employee/error.phone_valid_max'),
+            'role.required' => __('api/employee/error.role_valid_required'),
+            'role.integer' => __('api/employee/error.role_valid_integer'),
+            'role.min' => __('api/employee/error.role_valid_min'),
             'gender.required' => __('api/employee/error.gender_valid_required'),
             'gender.integer' => __('api/employee/error.gender_valid_integer'),
             'gender.rule' => __('api/employee/error.gender_valid_rule'),
             'salary.required' => __('api/employee/error.salary_valid_required'),
             'salary.integer' => __('api/employee/error.salary_valid_integer'),
             'salary.min' => __('api/employee/error.salary_valid_min'),
-            'working_type.required' => __('api/employee/error.working_type_valid_required'),
             'working_type.integer' => __('api/employee/error.working_type_valid_integer'),
             'working_type.rule' => __('api/employee/error.working_type_valid_rule'),
-            'working_hours.required' => __('api/employee/error.working_hours_valid_required'),
             'working_hours.integer' => __('api/employee/error.working_hours_valid_integer'),
             'working_hours.min' => __('api/employee/error.working_hours_valid_min'),
-            'working_place.required' => __('api/employee/error.working_place_valid_required'),
             'working_place.integer' => __('api/employee/error.working_place_valid_integer'),
             'working_place.rule' => __('api/employee/error.working_place_valid_rule'),
         ];

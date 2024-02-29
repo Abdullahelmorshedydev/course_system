@@ -13,5 +13,7 @@ return [
     'desactive' => 'غير مفعل',
     'parent' => 'أب',
     'country' => 'دولة',
+    'instructor' => 'المحاضر',
+    'mentor' => 'المساعد',
 
 ];

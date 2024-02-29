@@ -13,5 +13,7 @@ return [
     'desactive' => 'Desactive',
     'parent' => 'Parent',
     'country' => 'Country',
+    'instructor' => 'Instructor',
+    'mentor' => 'Mentor',
 
 ];

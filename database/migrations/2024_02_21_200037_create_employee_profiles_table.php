@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->decimal('salary');
             $table->tinyInteger('status')->default(1);
-            $table->tinyInteger('working_type')->default(1);
-            $table->integer('working_hours');
-            $table->tinyInteger('working_place')->default(1);
+            $table->tinyInteger('working_type')->default(1)->nullable();
+            $table->integer('working_hours')->nullable();
+            $table->tinyInteger('working_place')->default(1)->nullable();
             $table->timestamps();
         });
     }
