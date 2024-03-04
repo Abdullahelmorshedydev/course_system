@@ -61,4 +61,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(EmployeeProfile::class);
     }
+
+    public function instructorGroups()
+    {
+        return $this->hasMany(Group::class, 'instructor_id');
+    }
+
+    public function mentorGroups()
+    {
+        return $this->hasMany(Group::class, 'mentor_id');
+    }
 }

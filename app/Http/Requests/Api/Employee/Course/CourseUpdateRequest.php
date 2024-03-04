@@ -2,12 +2,13 @@
 
 namespace App\Http\Requests\Api\Employee\Course;
 
+use App\Traits\TranslateTrait;
+use App\Enums\CourseStatusEnum;
 use App\Enums\DiscountTypeEnum;
 use App\Enums\DurationTypeEnum;
-use App\Traits\ApiResponseTrait;
-use App\Traits\TranslateTrait;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Traits\ApiResponseTrait;
+use Illuminate\Foundation\Http\FormRequest;
 
 class CourseUpdateRequest extends FormRequest
 {
@@ -62,6 +63,7 @@ class CourseUpdateRequest extends FormRequest
             'duration' => ['required', 'integer', 'min:1'],
             'duration_type' => ['required', 'integer', Rule::in(DurationTypeEnum::cases())],
             'major_id' => ['required', 'exists:majors,id'],
+            'status' => ['required', 'integer', Rule::in(CourseStatusEnum::cases())],
         ];
     }
 
@@ -102,6 +104,9 @@ class CourseUpdateRequest extends FormRequest
             'duration.required' => __('api/employee/error.duration_valid_required'),
             'duration_type.integer' => __('api/employee/error.duration_type_valid_integer'),
             'duration_type.rule' => __('api/employee/error.duration_type_valid_rule'),
+            'status.required' => __('api/employee/error.status_valid_required'),
+            'status.integer' => __('api/employee/error.status_valid_integer'),
+            'status.rule' => __('api/employee/error.status_valid_rule'),
         ];
     }
 

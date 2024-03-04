@@ -17,26 +17,20 @@ class CourseController extends Controller
 {
     use ApiResponseTrait;
 
-    private $courseService;
-
-    public function __construct(CourseService $courseService)
-    {
-        $this->courseService = $courseService;
-    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(CourseService $courseService)
     {
-        return $this->apiResponse(new CourseCollection($this->courseService->index()), __('api/response_message.data_retrieved'));
+        return $this->apiResponse(new CourseCollection($courseService->index()), __('api/response_message.data_retrieved'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CourseStoreRequest $request)
+    public function store(CourseStoreRequest $request, CourseService $courseService)
     {
-        return $this->apiResponse(CourseResource::make($this->courseService->store($request->validated())), __('api/response_message.created_success'));
+        return $this->apiResponse(CourseResource::make($courseService->store($request->validated())), __('api/response_message.created_success'));
     }
 
     /**
@@ -50,16 +44,16 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CourseUpdateRequest $request, Course $course)
+    public function update(CourseUpdateRequest $request, Course $course, CourseService $courseService)
     {
-        return $this->apiResponse(CourseResource::make($this->courseService->update($course, $request->validated())), __('api/response_message.updated_success'));
+        return $this->apiResponse(CourseResource::make($courseService->update($course, $request->validated())), __('api/response_message.updated_success'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Course $course)
+    public function destroy(Course $course, CourseService $courseService)
     {
-        return $this->apiResponse($this->courseService->destroy($course), __('api/response_message.deleted_success'));
+        return $this->apiResponse($courseService->destroy($course), __('api/response_message.deleted_success'));
     }
 }

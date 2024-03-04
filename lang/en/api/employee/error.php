@@ -88,5 +88,22 @@ return [
     'discount_fixed_valid_max' => 'Discount Greater Than Price',
     'discount_percent_valid_max' => 'Discount Greater 100%',
     'discount_type_valid_null' => 'Not Found The Discount',
-
+    'instructor_valid_required' => 'Instructor Is Required',
+    'instructor_valid_exists' => 'Undefined This Instructor',
+    'mentor_valid_required' => 'Mentor Is Required',
+    'mentor_valid_exists' => 'Undefined This Mentor',
+    'start_date_valid_required' => 'Start Date Is Required',
+    'start_date_valid_date' => 'Start Date Format Is Wrong',
+    'end_date_valid_required' => 'End Date Is Required',
+    'end_date_valid_date' => 'End Date Format Is Wrong',
+    'course_valid_required' => 'Course Is Required',
+    'course_valid_exists' => 'Undefined This Course',
+    'max_students_valid_required' => 'Max Students Is Required',
+    'max_students_valid_integer' => 'Max Students Not Supported',
+    'max_students_valid_min' => 'Max Students Smaller Than 0',
+    'number_of_students_valid_required' => 'Number Of Students Is Required',
+    'number_of_students_valid_integer' => 'Number Of Students Not Supported',
+    'number_of_students_valid_min' => 'Number Of Students Smaller Than 0',
+    'number_of_students_valid_max' => 'Number Of Students Bigger Than Max Students',
+    
 ];
