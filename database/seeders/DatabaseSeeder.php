@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             // SettingsTableSeeder::class,
             // CourseTableSeeder::class,
             // GroupTableSeeder::class,
-            SessionTableSeeder::class,
+            // SessionTableSeeder::class,
+            AttendanceTableSeeder::class,
         ]);
     }
 }

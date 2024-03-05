@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\Employee\SessionController;
 use App\Http\Controllers\Api\Employee\EmployeeController;
 use App\Http\Controllers\Api\Employee\LocationController;
 use App\Http\Controllers\Api\Employee\SettingsController;
+use App\Http\Controllers\Api\Employee\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::apiResource('majors', MajorController::class);
 Route::apiResource('courses', CourseController::class);
 Route::apiResource('groups', GroupController::class);
 Route::apiResource('sessions', SessionController::class);
+Route::apiResource('attendances', AttendanceController::class);
 
 Route::prefix('/settings')->as('settigns.')->group(function(){
 

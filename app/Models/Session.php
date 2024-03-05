@@ -23,4 +23,9 @@ class Session extends Model
     {
         return $this->belongsTo(Group::class);
     }
+
+    public function attendance()
+    {
+        return $this->hasMany(Attendance::class);
+    }
 }

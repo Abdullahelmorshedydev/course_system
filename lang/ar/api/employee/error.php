@@ -112,5 +112,12 @@ return [
     'session_valid_required' => 'المحاضرة مطلوبة',
     'session_valid_string' => 'لينك المحاضرة نص',
     'session_valid_max' => 'اقصى عدد حروف 255 حرف',
+    'session_valid_exists' => 'المحاضرة غير موجودة',
+    'student_valid_required' => 'الطالب مطلوب',
+    'student_valid_exists' => 'الطالب غير موجود',
+    'evaluate_valid_required' => 'التقييم مطلوب',
+    'evaluate_valid_integer' => 'التقييم رقم',
+    'evaluate_valid_min' => 'التقييم اقل من 0',
+    'evaluate_valid_max' => 'التقييم اكبر من 10',
 
 ];

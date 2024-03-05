@@ -71,4 +71,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Group::class, 'mentor_id');
     }
+
+    public function attendance()
+    {
+        return $this->hasMany(Attendance::class);
+    }
 }

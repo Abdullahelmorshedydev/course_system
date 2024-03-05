@@ -112,5 +112,12 @@ return [
     'session_valid_required' => 'Session Is Required',
     'session_valid_string' => 'Session link should be a string',
     'session_valid_max' => 'Maximum length Is 255 char',
+    'session_valid_exists' => 'Undefined This Session',
+    'student_valid_required' => 'Student Is Required',
+    'student_valid_exists' => 'Undefined This Student',
+    'evaluate_valid_required' => 'Evaluate Is Required',
+    'evaluate_valid_integer' => 'Evaluate Should be an integer',
+    'evaluate_valid_min' => 'Evaluate smaller than 0',
+    'evaluate_valid_max' => 'Evaluate bigger than 10',
     
 ];
