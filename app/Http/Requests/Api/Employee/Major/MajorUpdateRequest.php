@@ -19,6 +19,14 @@ class MajorUpdateRequest extends FormRequest
         return true;
     }
 
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'name' => TranslateTrait::translate($this->name_en, $this->name_ar),
+            'slug' => TranslateTrait::translate($this->name_en, $this->name_ar, true),
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -29,6 +37,8 @@ class MajorUpdateRequest extends FormRequest
         return [
             'name_en' => ['required', 'string', Rule::unique('majors', 'name->en')->ignore($this->major), 'min:3', 'max:255'],
             'name_ar' => ['required', 'string', Rule::unique('majors', 'name->ar')->ignore($this->major), 'min:3', 'max:255'],
+            'name' => ['array'],
+            'slug' => ['array'],
             'major_id' => ['nullable', 'integer', 'exists:majors,id'],
         ];
     }
@@ -49,14 +59,6 @@ class MajorUpdateRequest extends FormRequest
             'major_id.integer' => __('api/employee/error.major_id_valid_integer'),
             'major_id.exists' => __('api/employee/error.major_id_valid_exists'),
         ];
-    }
-
-    protected function passedValidation()
-    {
-        $this->merge([
-            'name' => TranslateTrait::translate($this->name_en, $this->name_ar),
-            'slug' => TranslateTrait::translate($this->name_en, $this->name_ar, true),
-        ]);
     }
 
     public function failedValidation($validator)

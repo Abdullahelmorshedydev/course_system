@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             // MajorTableSeeder::class,
             // SettingsTableSeeder::class,
             // CourseTableSeeder::class,
-            GroupTableSeeder::class,
+            // GroupTableSeeder::class,
+            SessionTableSeeder::class,
         ]);
     }
 }

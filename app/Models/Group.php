@@ -10,6 +10,8 @@ class Group extends Model
 {
     use HasFactory, HasTranslations;
 
+    const ImgPath = 'uploads/groups/';
+
     public $translatable = ['name', 'slug'];
 
     protected $fillable = [

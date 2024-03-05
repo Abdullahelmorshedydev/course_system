@@ -4,11 +4,12 @@ namespace App\Http\Requests\Api\Employee\Location;
 
 use Illuminate\Validation\Rule;
 use App\Traits\ApiResponseTrait;
+use App\Traits\TranslateTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LocationUpdateRequest extends FormRequest
 {
-    use ApiResponseTrait;
+    use ApiResponseTrait, TranslateTrait;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -16,6 +17,14 @@ class LocationUpdateRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'name' => TranslateTrait::translate($this->name_en, $this->name_ar),
+            'slug' => TranslateTrait::translate($this->name_en, $this->name_ar, true),
+        ]);
     }
 
     /**
@@ -28,6 +37,8 @@ class LocationUpdateRequest extends FormRequest
         return [
             'name_en' => ['required', 'string', Rule::unique('locations', 'name->en')->ignore($this->location), 'min:3', 'max:255'],
             'name_ar' => ['required', 'string', Rule::unique('locations', 'name->ar')->ignore($this->location), 'min:3', 'max:255'],
+            'name' => ['array'],
+            'slug' => ['array'],
             'country_id' => ['nullable', 'integer', 'exists:locations,id'],
         ];
     }

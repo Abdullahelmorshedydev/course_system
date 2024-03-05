@@ -12,20 +12,13 @@ class SettingsController extends Controller
 {
     use ApiResponseTrait;
 
-    private $generalSettingsService;
-
-    public function __construct(SettingsService $generalSettingsService)
+    public function index(SettingsService $settingsService)
     {
-        $this->generalSettingsService = $generalSettingsService;
-    }
-    
-    public function index()
-    {
-        return $this->apiResponse($this->generalSettingsService->index(), __('api/response_message.data_retrieved'));
+        return $this->apiResponse($settingsService->index(), __('api/response_message.data_retrieved'));
     }
 
-    public function update(SettingsRequest $request)
+    public function update(SettingsRequest $request, SettingsService $settingsService)
     {
-        return $this->apiResponse($this->generalSettingsService->update($request->validated()), __('api/response_message.updated_success'));
+        return $this->apiResponse($settingsService->update($request->validated()), __('api/response_message.updated_success'));
     }
 }

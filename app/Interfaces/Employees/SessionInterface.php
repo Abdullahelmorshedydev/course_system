@@ -4,10 +4,10 @@ namespace App\Interfaces\Employees;
 
 use Illuminate\Database\Eloquent\Model;
 
-interface MajorInterface
+interface SessionInterface
 {
     public function index();
     public function store(array $data);
-    public function update(Model $major, array $data);
-    public function destroy(Model $major);
+    public function update(Model $session, array $data);
+    public function destroy(Model $session);
 }

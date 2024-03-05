@@ -105,5 +105,12 @@ return [
     'number_of_students_valid_integer' => 'عدد الطلاب غير مدعوم',
     'number_of_students_valid_min' => 'عدد الطلاب اقل من 0',
     'number_of_students_valid_max' => 'عدد الطلاب اكبر من اقصى عدد للطلاب',
+    'group_valid_required' => 'المجموعة مطلوبة',
+    'group_valid_exists' => 'المجموعة غير موجودة',
+    'date_valid_required' => 'التاريخ مطلوب',
+    'date_valid_date' => 'تنسيق التاريخ خطأ',
+    'session_valid_required' => 'المحاضرة مطلوبة',
+    'session_valid_string' => 'لينك المحاضرة نص',
+    'session_valid_max' => 'اقصى عدد حروف 255 حرف',
 
 ];

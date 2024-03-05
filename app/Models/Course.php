@@ -13,7 +13,7 @@ class Course extends Model
 {
     use HasFactory, HasTranslations;
 
-    const ImgPath = 'uploads/majors/';
+    const ImgPath = 'uploads/courses/';
 
     public $translatable = ['name', 'slug', 'description'];
 

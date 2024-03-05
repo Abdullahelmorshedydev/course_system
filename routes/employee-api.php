@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Employee\GroupController;
 use App\Http\Controllers\Api\Employee\MajorController;
 use App\Http\Controllers\Api\Employee\CourseController;
+use App\Http\Controllers\Api\Employee\SessionController;
 use App\Http\Controllers\Api\Employee\EmployeeController;
 use App\Http\Controllers\Api\Employee\LocationController;
 use App\Http\Controllers\Api\Employee\SettingsController;
@@ -25,6 +26,7 @@ Route::apiResource('locations', LocationController::class);
 Route::apiResource('majors', MajorController::class);
 Route::apiResource('courses', CourseController::class);
 Route::apiResource('groups', GroupController::class);
+Route::apiResource('sessions', SessionController::class);
 
 Route::prefix('/settings')->as('settigns.')->group(function(){
 

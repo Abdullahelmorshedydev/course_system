@@ -3,12 +3,13 @@
 namespace App\Http\Requests\Api\Employee\Location;
 
 use App\Traits\ApiResponseTrait;
+use App\Traits\TranslateTrait;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
 class LocationStoreRequest extends FormRequest
 {
-    use ApiResponseTrait;
+    use ApiResponseTrait, TranslateTrait;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -16,6 +17,14 @@ class LocationStoreRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'name' => TranslateTrait::translate($this->name_en, $this->name_ar),
+            'slug' => TranslateTrait::translate($this->name_en, $this->name_ar, true),
+        ]);
     }
 
     /**
@@ -28,6 +37,8 @@ class LocationStoreRequest extends FormRequest
         return [
             'name_en' => ['required', 'string', Rule::unique('locations', 'name->en'), 'min:3', 'max:255'],
             'name_ar' => ['required', 'string', Rule::unique('locations', 'name->ar'), 'min:3', 'max:255'],
+            'name' => ['array'],
+            'slug' => ['array'],
             'country_id' => ['nullable', 'integer', 'exists:locations,id'],
         ];
     }

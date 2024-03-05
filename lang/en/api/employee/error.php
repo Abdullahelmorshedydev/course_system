@@ -105,5 +105,12 @@ return [
     'number_of_students_valid_integer' => 'Number Of Students Not Supported',
     'number_of_students_valid_min' => 'Number Of Students Smaller Than 0',
     'number_of_students_valid_max' => 'Number Of Students Bigger Than Max Students',
+    'group_valid_required' => 'Group Is Required',
+    'group_valid_exists' => 'Undefined This Group',
+    'date_valid_required' => 'Date Is Required',
+    'date_valid_date' => 'This Format Is Wrong',
+    'session_valid_required' => 'Session Is Required',
+    'session_valid_string' => 'Session link should be a string',
+    'session_valid_max' => 'Maximum length Is 255 char',
     
 ];
