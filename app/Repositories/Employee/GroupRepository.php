@@ -4,9 +4,9 @@ namespace App\Repositories\Employee;
 
 use App\Models\Group;
 use App\Enums\CourseStatusEnum;
-use App\Interfaces\Employees\GroupInterface;
+use App\Interfaces\Employees\ModuleInterface;
 
-class GroupRepository implements GroupInterface
+class GroupRepository implements ModuleInterface
 {
     public function index()
     {

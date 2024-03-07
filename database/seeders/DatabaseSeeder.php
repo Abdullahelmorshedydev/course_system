@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             // CourseTableSeeder::class,
             // GroupTableSeeder::class,
             // SessionTableSeeder::class,
-            AttendanceTableSeeder::class,
+            // AttendanceTableSeeder::class,
+            TaskTableSeeder::class,
         ]);
     }
 }

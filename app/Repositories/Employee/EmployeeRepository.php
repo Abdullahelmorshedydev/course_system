@@ -7,14 +7,13 @@ use App\Models\User;
 use App\Enums\UserRoleEnum;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
-use App\Interfaces\Employees\EmployeeInterface;
+use App\Interfaces\Employees\ModuleInterface;
 
-class EmployeeRepository implements EmployeeInterface
+class EmployeeRepository implements ModuleInterface
 {
     public function index()
     {
-        $employees = User::where('role', UserRoleEnum::EMPLOYEE->value)->with('employeeProfile')->paginate();
-        return $employees;
+        return User::where('role', UserRoleEnum::EMPLOYEE->value)->with('employeeProfile')->paginate();
     }
 
     public function store($data)
@@ -43,7 +42,7 @@ class EmployeeRepository implements EmployeeInterface
                 'status' => $data['status'],
                 'working_type' => $data['working_type'],
                 'working_hours' => $data['working_hours'],
-                'working_place' => $data['working_place'],               
+                'working_place' => $data['working_place'],
             ]);
             DB::commit();
             return $employee;
@@ -57,11 +56,6 @@ class EmployeeRepository implements EmployeeInterface
 
     public function destroy($employee)
     {
-        try{
-            $employee->delete();
-            return true;
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
+        return $employee->delete();
     }
 }

@@ -3,20 +3,18 @@
 namespace App\Repositories\Employee;
 
 use App\Models\Major;
-use App\Interfaces\Employees\MajorInterface;
+use App\Interfaces\Employees\ModuleInterface;
 
-class MajorRepository implements MajorInterface
+class MajorRepository implements ModuleInterface
 {
     public function index()
     {
-        $majors = Major::paginate();
-        return $majors;
+        return Major::paginate();
     }
 
     public function store($data)
     {
-        $major = Major::create($data);
-        return $major;
+        return Major::create($data);
     }
 
     public function update($major, $data)
@@ -27,7 +25,6 @@ class MajorRepository implements MajorInterface
 
     public function destroy($major)
     {
-        $major->delete();
-        return true;
+        return $major->delete();
     }
 }

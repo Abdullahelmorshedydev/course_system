@@ -28,4 +28,9 @@ class Session extends Model
     {
         return $this->hasMany(Attendance::class);
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
