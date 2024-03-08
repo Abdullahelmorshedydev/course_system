@@ -2,37 +2,37 @@
 
 namespace App\Services\Employees;
 
+use App\Interfaces\Employees\AttendanceInterface;
 use App\Traits\ApiResponseTrait;
-use App\Repositories\Employee\AttendanceRepository;
 
 class AttendanceService
 {
     use ApiResponseTrait;
 
-    private $attendanceRepository;
+    private $attendanceRepoInterface;
 
-    public function __construct(AttendanceRepository $attendanceRepository)
+    public function __construct(AttendanceInterface $attendanceRepoInterface)
     {
-        $this->attendanceRepository = $attendanceRepository;
+        $this->attendanceRepoInterface = $attendanceRepoInterface;
     }
 
     public function index()
     {
-        return $this->attendanceRepository->index();
+        return $this->attendanceRepoInterface->index();
     }
 
     public function store($data)
     {
-        return $this->attendanceRepository->store($data);
+        return $this->attendanceRepoInterface->store($data);
     }
 
     public function update($attendance, $data)
     {
-        return $this->attendanceRepository->update($attendance, $data);
+        return $this->attendanceRepoInterface->update($attendance, $data);
     }
 
     public function destroy($attendance)
     {
-        return $this->attendanceRepository->destroy($attendance);
+        return $this->attendanceRepoInterface->destroy($attendance);
     }
 }

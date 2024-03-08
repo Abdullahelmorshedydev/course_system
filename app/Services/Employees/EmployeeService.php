@@ -2,37 +2,37 @@
 
 namespace App\Services\Employees;
 
+use App\Interfaces\Employees\EmployeeInterface;
 use App\Traits\ApiResponseTrait;
-use App\Repositories\Employee\EmployeeRepository;
 
 class EmployeeService
 {
     use ApiResponseTrait;
 
-    private $employeeRepository;
+    private $employeeRepoInterface;
 
-    public function __construct(EmployeeRepository $employeeRepository)
+    public function __construct(EmployeeInterface $employeeRepoInterface)
     {
-        $this->employeeRepository = $employeeRepository;
+        $this->employeeRepoInterface = $employeeRepoInterface;
     }
 
     public function index()
     {
-        return $this->employeeRepository->index();
+        return $this->employeeRepoInterface->index();
     }
 
     public function store($data)
     {
-        return $this->employeeRepository->store($data);
+        return $this->employeeRepoInterface->store($data);
     }
 
     public function update($employee, $data)
     {
-        return $this->employeeRepository->update($employee, $data);
+        return $this->employeeRepoInterface->update($employee, $data);
     }
 
     public function destroy($employee)
     {
-        return $this->employeeRepository->destroy($employee);
+        return $this->employeeRepoInterface->destroy($employee);
     }
 }

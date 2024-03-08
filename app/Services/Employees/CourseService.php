@@ -2,37 +2,37 @@
 
 namespace App\Services\Employees;
 
+use App\Interfaces\Employees\CourseInterface;
 use App\Traits\ApiResponseTrait;
-use App\Repositories\Employee\CourseRepository;
 
 class CourseService
 {
     use ApiResponseTrait;
 
-    private $courseRepository;
+    private $courseRepoInterface;
 
-    public function __construct(CourseRepository $courseRepository)
+    public function __construct(CourseInterface $courseRepoInterface)
     {
-        $this->courseRepository = $courseRepository;
+        $this->courseRepoInterface = $courseRepoInterface;
     }
 
     public function index()
     {
-        return $this->courseRepository->index();
+        return $this->courseRepoInterface->index();
     }
 
     public function store($data)
     {
-        return $this->courseRepository->store($data);
+        return $this->courseRepoInterface->store($data);
     }
 
     public function update($course, $data)
     {
-        return $this->courseRepository->update($course, $data);
+        return $this->courseRepoInterface->update($course, $data);
     }
 
     public function destroy($course)
     {
-        return $this->courseRepository->destroy($course);
+        return $this->courseRepoInterface->destroy($course);
     }
 }

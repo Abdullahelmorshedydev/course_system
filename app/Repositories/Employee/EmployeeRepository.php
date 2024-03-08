@@ -7,9 +7,9 @@ use App\Models\User;
 use App\Enums\UserRoleEnum;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
-use App\Interfaces\Employees\ModuleInterface;
+use App\Interfaces\Employees\EmployeeInterface;
 
-class EmployeeRepository implements ModuleInterface
+class EmployeeRepository implements EmployeeInterface
 {
     public function index()
     {

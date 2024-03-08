@@ -2,34 +2,34 @@
 
 namespace App\Services\Employees;
 
-use App\Repositories\Employee\LocationRepository;
+use App\Interfaces\Employees\LocationInterface;
 
 class LocationService
 {
-    private $locationRepository;
+    private $locationRepoInterface;
 
-    public function __construct(LocationRepository $locationRepository)
+    public function __construct(LocationInterface $locationRepoInterface)
     {
-        $this->locationRepository = $locationRepository;
+        $this->locationRepoInterface = $locationRepoInterface;
     }
 
     public function index()
     {
-        return $this->locationRepository->index();
+        return $this->locationRepoInterface->index();
     }
 
     public function store($data)
     {
-        return $this->locationRepository->store($data);
+        return $this->locationRepoInterface->store($data);
     }
 
     public function update($location, $data)
     {
-        return $this->locationRepository->update($location, $data);
+        return $this->locationRepoInterface->update($location, $data);
     }
 
     public function destroy($location)
     {
-        return $this->locationRepository->destroy($location);
+        return $this->locationRepoInterface->destroy($location);
     }
 }

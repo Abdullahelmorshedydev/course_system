@@ -3,9 +3,9 @@
 namespace App\Repositories\Employee;
 
 use App\Models\Major;
-use App\Interfaces\Employees\ModuleInterface;
+use App\Interfaces\Employees\MajorInterface;
 
-class MajorRepository implements ModuleInterface
+class MajorRepository implements MajorInterface
 {
     public function index()
     {

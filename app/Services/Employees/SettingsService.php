@@ -2,24 +2,24 @@
 
 namespace App\Services\Employees;
 
-use App\Repositories\Employee\SettingsRepository;
+use App\Interfaces\Employees\SettingsInterface;
 
 class SettingsService
 {
-    private $settingsRepository;
+    private $settionsRepoInterface;
 
-    public function __construct(SettingsRepository $settingsRepository)
+    public function __construct(SettingsInterface $settionsRepoInterface)
     {
-        $this->settingsRepository = $settingsRepository;
+        $this->settionsRepoInterface = $settionsRepoInterface;
     }
 
     public function index()
     {
-        return $this->settingsRepository->index();
+        return $this->settionsRepoInterface->index();
     }
 
     public function update($data)
     {
-        return $this->settingsRepository->update($data);
+        return $this->settionsRepoInterface->update($data);
     }
 }

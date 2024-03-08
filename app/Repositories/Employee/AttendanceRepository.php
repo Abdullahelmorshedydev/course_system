@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Employee;
 
-use App\Interfaces\Employees\ModuleInterface;
+use App\Interfaces\Employees\AttendanceInterface;
 use App\Models\Attendance;
 
-class AttendanceRepository implements ModuleInterface
+class AttendanceRepository implements AttendanceInterface
 {
     public function index()
     {

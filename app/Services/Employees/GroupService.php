@@ -2,37 +2,37 @@
 
 namespace App\Services\Employees;
 
+use App\Interfaces\Employees\GroupInterface;
 use App\Traits\ApiResponseTrait;
-use App\Repositories\Employee\GroupRepository;
 
 class GroupService
 {
     use ApiResponseTrait;
 
-    private $groupRepository;
+    private $groupRepoInterface;
 
-    public function __construct(GroupRepository $groupRepository)
+    public function __construct(GroupInterface $groupRepoInterface)
     {
-        $this->groupRepository = $groupRepository;
+        $this->groupRepoInterface = $groupRepoInterface;
     }
 
     public function index()
     {
-        return $this->groupRepository->index();
+        return $this->groupRepoInterface->index();
     }
 
     public function store($data)
     {
-        return $this->groupRepository->store($data);
+        return $this->groupRepoInterface->store($data);
     }
 
     public function update($group, $data)
     {
-        return $this->groupRepository->update($group, $data);
+        return $this->groupRepoInterface->update($group, $data);
     }
 
     public function destroy($group)
     {
-        return $this->groupRepository->destroy($group);
+        return $this->groupRepoInterface->destroy($group);
     }
 }

@@ -119,5 +119,11 @@ return [
     'evaluate_valid_integer' => 'Evaluate Should be an integer',
     'evaluate_valid_min' => 'Evaluate smaller than 0',
     'evaluate_valid_max' => 'Evaluate bigger than 10',
+    'task_valid_required' => 'Task Is Required',
+    'task_valid_string' => 'Task Should be a string',
+    'task_valid_min' => 'Task smaller than 3',
+    'task_valid_max' => 'Task bigger than 255',
+    'deadline_valid_required' => 'Deadline Is Required',
+    'deadline_valid_date' => 'This Format Is Wrong',
     
 ];

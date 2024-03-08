@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Employee;
 
-use App\Interfaces\Employees\ModuleInterface;
+use App\Interfaces\Employees\SessionInterface;
 use App\Models\Session;
 
-class SessionRepository implements ModuleInterface
+class SessionRepository implements SessionInterface
 {
     public function index()
     {

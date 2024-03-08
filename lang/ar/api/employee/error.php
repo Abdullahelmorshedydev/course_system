@@ -119,5 +119,11 @@ return [
     'evaluate_valid_integer' => 'التقييم رقم',
     'evaluate_valid_min' => 'التقييم اقل من 0',
     'evaluate_valid_max' => 'التقييم اكبر من 10',
+    'task_valid_required' => 'التاسك مطلوب',
+    'task_valid_string' => 'التاسك يجب ان يكون نص',
+    'task_valid_min' => 'لينك التاسك اقل من 3 حروف',
+    'task_valid_max' => 'لينك التاسك اكبر من 255 حرف',
+    'deadline_valid_required' => 'التاريخ التسليم مطلوب',
+    'deadline_valid_date' => 'تنسيق التاريخ خطأ',
 
 ];

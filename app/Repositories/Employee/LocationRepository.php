@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Employee;
 
-use App\Interfaces\Employees\ModuleInterface;
+use App\Interfaces\Employees\LocationInterface;
 use App\Models\Location;
 
-class LocationRepository implements ModuleInterface
+class LocationRepository implements LocationInterface
 {
     public function index()
     {

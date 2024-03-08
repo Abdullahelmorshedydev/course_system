@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Employee;
 
-use App\Interfaces\Employees\ModuleInterface;
+use App\Interfaces\Employees\TaskInterface;
 use App\Models\Task;
 
-class TaskRepository implements ModuleInterface
+class TaskRepository implements TaskInterface
 {
     public function index()
     {
