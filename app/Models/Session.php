@@ -33,4 +33,9 @@ class Session extends Model
     {
         return $this->hasMany(Task::class);
     }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class);
+    }
 }

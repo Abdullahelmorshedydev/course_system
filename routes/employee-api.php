@@ -2,15 +2,16 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Employee\TaskController;
 use App\Http\Controllers\Api\Employee\GroupController;
 use App\Http\Controllers\Api\Employee\MajorController;
 use App\Http\Controllers\Api\Employee\CourseController;
 use App\Http\Controllers\Api\Employee\SessionController;
 use App\Http\Controllers\Api\Employee\EmployeeController;
+use App\Http\Controllers\Api\Employee\FeedbackController;
 use App\Http\Controllers\Api\Employee\LocationController;
 use App\Http\Controllers\Api\Employee\SettingsController;
 use App\Http\Controllers\Api\Employee\AttendanceController;
-use App\Http\Controllers\Api\Employee\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::apiResource('groups', GroupController::class);
 Route::apiResource('sessions', SessionController::class);
 Route::apiResource('attendances', AttendanceController::class);
 Route::apiResource('tasks', TaskController::class);
+Route::apiResource('feedback', FeedbackController::class);
 
 Route::prefix('/settings')->as('settigns.')->group(function(){
 

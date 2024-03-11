@@ -125,5 +125,8 @@ return [
     'task_valid_max' => 'Task bigger than 255',
     'deadline_valid_required' => 'Deadline Is Required',
     'deadline_valid_date' => 'This Format Is Wrong',
+    'message_valid_required' => 'Message Is Required',
+    'message_valid_string' => 'Message Should be an string',
+    'message_valid_min' => 'Message smaller than 0',
     
 ];

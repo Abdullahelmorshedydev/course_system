@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Employee\Task;
+namespace App\Http\Resources\Employee\Feedback;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SingleTaskResource extends JsonResource
+class SingleFeedbackResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +18,7 @@ class SingleTaskResource extends JsonResource
             'id' => $this->id,
             'user' => $this->user->name,
             'session' => $this->session->date,
-            'task' => $this->task,
-            'deadline' => $this->deadline,
-            'evaluate' => $this->evaluate,
+            'message' => $this->message,
         ];
     }
 }

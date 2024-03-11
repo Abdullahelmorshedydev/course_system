@@ -125,5 +125,8 @@ return [
     'task_valid_max' => 'لينك التاسك اكبر من 255 حرف',
     'deadline_valid_required' => 'التاريخ التسليم مطلوب',
     'deadline_valid_date' => 'تنسيق التاريخ خطأ',
+    'message_valid_required' => 'الرسالة مطلوبة',
+    'message_valid_string' => 'الرسالة يجب ان تكون نص',
+    'message_valid_min' => 'الرسالة صغيرة',
 
 ];

@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             // GroupTableSeeder::class,
             // SessionTableSeeder::class,
             // AttendanceTableSeeder::class,
-            TaskTableSeeder::class,
+            // TaskTableSeeder::class,
+            FeedbackTableSeeder::class,
         ]);
     }
 }
