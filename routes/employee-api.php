@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Employee\RoleController;
 use App\Http\Controllers\Api\Employee\TaskController;
 use App\Http\Controllers\Api\Employee\GroupController;
 use App\Http\Controllers\Api\Employee\MajorController;
@@ -33,6 +34,7 @@ Route::apiResource('sessions', SessionController::class);
 Route::apiResource('attendances', AttendanceController::class);
 Route::apiResource('tasks', TaskController::class);
 Route::apiResource('feedback', FeedbackController::class);
+Route::apiResource('roles', RoleController::class);
 
 Route::prefix('/settings')->as('settigns.')->group(function(){
 

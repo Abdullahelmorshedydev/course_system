@@ -3,12 +3,9 @@
 namespace App\Services\Employees;
 
 use App\Interfaces\Employees\CourseInterface;
-use App\Traits\ApiResponseTrait;
 
 class CourseService
 {
-    use ApiResponseTrait;
-
     private $courseRepoInterface;
 
     public function __construct(CourseInterface $courseRepoInterface)

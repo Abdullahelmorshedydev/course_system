@@ -128,5 +128,8 @@ return [
     'message_valid_required' => 'Message Is Required',
     'message_valid_string' => 'Message Should be an string',
     'message_valid_min' => 'Message smaller than 0',
+    'permission_valid_required' => 'Permission is required',
+    'permission_valid_array' => 'Permission should be an array',
+    'permission_valid_exists' => 'Permission not in our records',
     
 ];

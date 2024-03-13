@@ -3,12 +3,9 @@
 namespace App\Services\Employees;
 
 use App\Interfaces\Employees\EmployeeInterface;
-use App\Traits\ApiResponseTrait;
 
 class EmployeeService
 {
-    use ApiResponseTrait;
-
     private $employeeRepoInterface;
 
     public function __construct(EmployeeInterface $employeeRepoInterface)

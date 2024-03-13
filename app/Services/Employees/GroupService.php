@@ -3,12 +3,9 @@
 namespace App\Services\Employees;
 
 use App\Interfaces\Employees\GroupInterface;
-use App\Traits\ApiResponseTrait;
 
 class GroupService
 {
-    use ApiResponseTrait;
-
     private $groupRepoInterface;
 
     public function __construct(GroupInterface $groupRepoInterface)

@@ -19,6 +19,19 @@ class SessionController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+        $this->middleware(['check.permission:session-list'], ['only' => ['index']]);
+        $this->middleware(['check.permission:session-create'], ['only' => ['create', 'store']]);
+        $this->middleware(['check.permission:session-edit'], ['only' => ['edit', 'update']]);
+        $this->middleware(['check.permission:session-delete'], ['only' => ['destroy']]);
+    }
+
+    /**
+     * Display a listing of the resource.
      */
     public function index(SessionService $sessionService)
     {

@@ -20,6 +20,19 @@ class MajorController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+        $this->middleware(['check.permission:major-list'], ['only' => ['index']]);
+        $this->middleware(['check.permission:major-create'], ['only' => ['create', 'store']]);
+        $this->middleware(['check.permission:major-edit'], ['only' => ['edit', 'update']]);
+        $this->middleware(['check.permission:major-delete'], ['only' => ['destroy']]);
+    }
+
+    /**
+     * Display a listing of the resource.
      */
     public function index(MajorService $majorService)
     {

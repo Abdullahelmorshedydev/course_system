@@ -3,12 +3,9 @@
 namespace App\Services\Employees;
 
 use App\Interfaces\Employees\FeedbackInterface;
-use App\Traits\ApiResponseTrait;
 
 class FeedbackService
 {
-    use ApiResponseTrait;
-
     private $feedbackRepoInterface;
 
     public function __construct(FeedbackInterface $feedbackRepoInterface)

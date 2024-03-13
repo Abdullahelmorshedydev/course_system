@@ -3,12 +3,9 @@
 namespace App\Services\Employees;
 
 use App\Interfaces\Employees\AttendanceInterface;
-use App\Traits\ApiResponseTrait;
 
 class AttendanceService
 {
-    use ApiResponseTrait;
-
     private $attendanceRepoInterface;
 
     public function __construct(AttendanceInterface $attendanceRepoInterface)

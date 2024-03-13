@@ -19,7 +19,7 @@ class IsEmployee
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role->value != UserRoleEnum::EMPLOYEE->value) {
+        if (auth()->user()->role == UserRoleEnum::STUDENT) {
             return $this->apiResponse([], __('api/response_message.unauthorize'), [], 401);
         }
         return $next($request);

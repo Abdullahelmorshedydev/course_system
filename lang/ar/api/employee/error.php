@@ -128,5 +128,8 @@ return [
     'message_valid_required' => 'الرسالة مطلوبة',
     'message_valid_string' => 'الرسالة يجب ان تكون نص',
     'message_valid_min' => 'الرسالة صغيرة',
+    'permission_valid_required' => 'الصلاحية مطلوبة',
+    'permission_valid_array' => 'الصلاحيات يجب ان تكون مجموعة',
+    'permission_valid_exists' => 'الصلاحية غير موجودة فى سجلاتنا',
 
 ];

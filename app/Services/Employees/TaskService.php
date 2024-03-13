@@ -3,12 +3,9 @@
 namespace App\Services\Employees;
 
 use App\Interfaces\Employees\TaskInterface;
-use App\Traits\ApiResponseTrait;
 
 class TaskService
 {
-    use ApiResponseTrait;
-
     private $taskRepoInterface;
 
     public function __construct(TaskInterface $taskRepoInterface)

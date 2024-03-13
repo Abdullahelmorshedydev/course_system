@@ -19,6 +19,19 @@ class LocationController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+        $this->middleware(['check.permission:location-list'], ['only' => ['index']]);
+        $this->middleware(['check.permission:location-create'], ['only' => ['create', 'store']]);
+        $this->middleware(['check.permission:location-edit'], ['only' => ['edit', 'update']]);
+        $this->middleware(['check.permission:location-delete'], ['only' => ['destroy']]);
+    }
+
+    /**
+     * Display a listing of the resource.
      */
     public function index(LocationService $locationService)
     {

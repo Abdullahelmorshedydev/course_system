@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\Employees\RoleInterface;
 use App\Interfaces\Employees\TaskInterface;
 use App\Interfaces\Employees\GroupInterface;
 use App\Interfaces\Employees\MajorInterface;
 use App\Interfaces\Employees\CourseInterface;
+use App\Repositories\Employee\RoleRepository;
 use App\Repositories\Employee\TaskRepository;
 use App\Interfaces\Employees\SessionInterface;
 use App\Repositories\Employee\GroupRepository;
@@ -41,6 +43,7 @@ class RepoInterfaceServiceProvider extends ServiceProvider
         $this->app->bind(CourseInterface::class, CourseRepository::class);
         $this->app->bind(AttendanceInterface::class, AttendanceRepository::class);
         $this->app->bind(FeedbackInterface::class, FeedbackRepository::class);
+        $this->app->bind(RoleInterface::class, RoleRepository::class);
     }
 
     /**

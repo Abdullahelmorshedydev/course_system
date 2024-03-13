@@ -19,6 +19,19 @@ class CourseController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+        $this->middleware(['check.permission:course-list'], ['only' => ['index']]);
+        $this->middleware(['check.permission:course-create'], ['only' => ['create', 'store']]);
+        $this->middleware(['check.permission:course-edit'], ['only' => ['edit', 'update']]);
+        $this->middleware(['check.permission:course-delete'], ['only' => ['destroy']]);
+    }
+
+    /**
+     * Display a listing of the resource.
      */
     public function index(CourseService $courseService)
     {

@@ -3,12 +3,9 @@
 namespace App\Services\Employees;
 
 use App\Interfaces\Employees\SessionInterface;
-use App\Traits\ApiResponseTrait;
 
 class SessionService
 {
-    use ApiResponseTrait;
-
     private $sessionRepoInterface;
 
     public function __construct(SessionInterface $sessionRepoInterface)

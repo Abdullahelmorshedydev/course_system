@@ -19,6 +19,19 @@ class TaskController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+        $this->middleware(['check.permission:task-list'], ['only' => ['index']]);
+        $this->middleware(['check.permission:task-create'], ['only' => ['create', 'store']]);
+        $this->middleware(['check.permission:task-edit'], ['only' => ['edit', 'update']]);
+        $this->middleware(['check.permission:task-delete'], ['only' => ['destroy']]);
+    }
+
+    /**
+     * Display a listing of the resource.
      */
     public function index(TaskService $taskService)
     {
