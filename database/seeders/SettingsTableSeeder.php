@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Enums\SettingGroupEnum;
+use App\Enums\SettingTypeEnum;
 use App\Models\Setting;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -27,6 +29,8 @@ class SettingsTableSeeder extends Seeder
             Setting::create([
                 'key' => $key,
                 'value' => $value,
+                'type' => SettingTypeEnum::TEXT->value,
+                'group' =>SettingGroupEnum::GENERAL->value,
             ]);
         }
 
@@ -34,6 +38,8 @@ class SettingsTableSeeder extends Seeder
             Setting::create([
                 'key' => $key,
                 'value' => $value,
+                'type' => SettingTypeEnum::FILE,
+                'group' =>SettingGroupEnum::FILES->value,
             ]);
         }
     }

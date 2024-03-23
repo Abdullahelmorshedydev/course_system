@@ -11,8 +11,10 @@ use App\Http\Controllers\Api\Employee\SessionController;
 use App\Http\Controllers\Api\Employee\EmployeeController;
 use App\Http\Controllers\Api\Employee\FeedbackController;
 use App\Http\Controllers\Api\Employee\LocationController;
-use App\Http\Controllers\Api\Employee\SettingsController;
 use App\Http\Controllers\Api\Employee\AttendanceController;
+use App\Http\Controllers\Api\Employee\Setting\FileSettingController;
+use App\Http\Controllers\Api\Employee\Setting\LinkSettingController;
+use App\Http\Controllers\Api\Employee\Setting\GeneralSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +38,19 @@ Route::apiResource('tasks', TaskController::class);
 Route::apiResource('feedback', FeedbackController::class);
 Route::apiResource('roles', RoleController::class);
 
-Route::prefix('/settings')->as('settigns.')->group(function(){
+Route::prefix('/settings')->as('settigns.')->group(function () {
 
-    Route::controller(SettingsController::class)->prefix('/general')->as('general.')->group(function(){
+    Route::controller(GeneralSettingController::class)->prefix('/general')->as('general.')->group(function () {
+        Route::get('/', 'index');
+        Route::put('/', 'update');
+    });
+
+    Route::controller(FileSettingController::class)->prefix('/files')->as('files.')->group(function () {
+        Route::get('/', 'index');
+        Route::put('/', 'update');
+    });
+
+    Route::controller(LinkSettingController::class)->prefix('/links')->as('links.')->group(function () {
         Route::get('/', 'index');
         Route::put('/', 'update');
     });

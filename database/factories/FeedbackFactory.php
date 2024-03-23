@@ -18,7 +18,7 @@ class FeedbackFactory extends Factory
     {
         return [
             'user_id' => rand(1, 10),
-            'session_id' => rand(2, 11),
+            'session_id' => rand(1, 10),
             'message' => fake()->paragraph(),
         ];
     }

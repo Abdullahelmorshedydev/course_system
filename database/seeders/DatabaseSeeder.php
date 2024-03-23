@@ -13,17 +13,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            // LocationTableSeeder::class,
-            // UserTableSeeder::class,
-            // EmployeeProfileTableSeeder::class,
-            // MajorTableSeeder::class,
-            // SettingsTableSeeder::class,
-            // CourseTableSeeder::class,
-            // GroupTableSeeder::class,
-            // SessionTableSeeder::class,
-            // AttendanceTableSeeder::class,
-            // TaskTableSeeder::class,
-            // FeedbackTableSeeder::class,
+            LocationTableSeeder::class,
+            UserTableSeeder::class,
+            EmployeeProfileTableSeeder::class,
+            MajorTableSeeder::class,
+            SettingsTableSeeder::class,
+            CourseTableSeeder::class,
+            GroupTableSeeder::class,
+            SessionTableSeeder::class,
+            AttendanceTableSeeder::class,
+            TaskTableSeeder::class,
+            FeedbackTableSeeder::class,
             RolePermessionsSeeder::class,
         ]);
     }

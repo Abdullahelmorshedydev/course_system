@@ -19,7 +19,7 @@ class GroupFactory extends Factory
         return [
             'name' => ['en' => fake()->name(), 'ar' => fake()->name()],
             'slug' => ['en' => str_replace(' ', '-', fake()->name()), 'ar' => str_replace(' ', '-', fake()->name())],
-            'instructor_id' => rand(10, 15),
+            'instructor_id' => 21,
             'mentor_id' => rand(10, 15),
             'start_date' => fake()->date(),
             'end_date' => fake()->date(),

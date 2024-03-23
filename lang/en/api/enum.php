@@ -15,5 +15,10 @@ return [
     'country' => 'Country',
     'instructor' => 'Instructor',
     'mentor' => 'Mentor',
+    'file' => 'File',
+    'text' => 'Text',
+    'files' => 'Files',
+    'general' => 'General',
+    'links' => 'Links',
 
 ];

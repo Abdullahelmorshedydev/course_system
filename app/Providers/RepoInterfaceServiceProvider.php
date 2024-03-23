@@ -16,15 +16,19 @@ use App\Repositories\Employee\MajorRepository;
 use App\Interfaces\Employees\EmployeeInterface;
 use App\Interfaces\Employees\FeedbackInterface;
 use App\Interfaces\Employees\LocationInterface;
-use App\Interfaces\Employees\SettingsInterface;
 use App\Repositories\Employee\CourseRepository;
 use App\Repositories\Employee\SessionRepository;
 use App\Interfaces\Employees\AttendanceInterface;
 use App\Repositories\Employee\EmployeeRepository;
 use App\Repositories\Employee\FeedbackRepository;
 use App\Repositories\Employee\LocationRepository;
-use App\Repositories\Employee\SettingsRepository;
 use App\Repositories\Employee\AttendanceRepository;
+use App\Interfaces\Employees\Setting\FileSettingInterface;
+use App\Interfaces\Employees\Setting\LinkSettingInterface;
+use App\Repositories\Employee\Setting\FileSettingRepository;
+use App\Repositories\Employee\Setting\LinkSettingRepository;
+use App\Interfaces\Employees\Setting\GeneralSettingInterface;
+use App\Repositories\Employee\Setting\GeneralSettingRepository;
 
 class RepoInterfaceServiceProvider extends ServiceProvider
 {
@@ -34,7 +38,9 @@ class RepoInterfaceServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(TaskInterface::class, TaskRepository::class);
-        $this->app->bind(SettingsInterface::class, SettingsRepository::class);
+        $this->app->bind(GeneralSettingInterface::class, GeneralSettingRepository::class);
+        $this->app->bind(LinkSettingInterface::class, LinkSettingRepository::class);
+        $this->app->bind(FileSettingInterface::class, FileSettingRepository::class);
         $this->app->bind(SessionInterface::class, SessionRepository::class);
         $this->app->bind(MajorInterface::class, MajorRepository::class);
         $this->app->bind(LocationInterface::class, LocationRepository::class);

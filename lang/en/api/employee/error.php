@@ -131,5 +131,9 @@ return [
     'permission_valid_required' => 'Permission is required',
     'permission_valid_array' => 'Permission should be an array',
     'permission_valid_exists' => 'Permission not in our records',
+    'facebook_link_valid_required' => 'Facebook Link Is Required',
+    'facebook_link_valid_string' => 'Facebook Link Should Be String',
+    'facebook_link_valid_min' => 'Facebook Link Length Between 3 To 255',
+    'facebook_link_valid_max' => 'Facebook Link Length Between 3 To 255',
     
 ];

@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Api\Employee;
+namespace App\Http\Requests\Api\Employee\Setting;
 
+use App\Enums\SettingTypeEnum;
+use App\Enums\SettingGroupEnum;
 use App\Traits\ApiResponseTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SettingsRequest extends FormRequest
+class FileSettingRequest extends FormRequest
 {
     use ApiResponseTrait;
     
@@ -17,6 +19,14 @@ class SettingsRequest extends FormRequest
         return true;
     }
 
+    public function prepareForValidation()
+    {
+        // $this->merge([
+        //     'type' => SettingTypeEnum::FILE->value,
+        //     'group' => SettingGroupEnum::FILES->value,
+        // ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,19 +34,17 @@ class SettingsRequest extends FormRequest
      */
     public function rules(): array
     {
+        dd($this->all());
         return [
-            'site_name' => ['required', 'string', 'min:3', 'max:255'],
-            'logo' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'mimetypes:image/png,image/jpg,image/jpeg']
+            'logo' => ['required', 'image', 'mimes:png,jpg,jpeg', 'mimetypes:image/png,image/jpg,image/jpeg'],
+            'type' => ['required'],
+            'group' => ['required'],
         ];
     }
 
     public function messages()
     {
         return [
-            'site_name.required' => __('api/employee/error.site_name_valid_required'),
-            'site_name.string' => __('api/employee/error.site_name_valid_string'),
-            'site_name.min' => __('api/employee/error.site_name_valid_min'),
-            'site_name.max' => __('api/employee/error.site_name_valid_max'),
             'logo.image' => __('api/employee/error.image_valid'),
             'logo.mimes' => __('api/employee/error.mimes_valid'),
             'logo.mimetypes' => __('api/employee/error.mimetype_valid'),
@@ -45,6 +53,6 @@ class SettingsRequest extends FormRequest
 
     public function failedValidation($validator)
     {
-        return ApiResponseTrait::failedValidation($validator, [], 'Validation Error', 422);
+        // return ApiResponseTrait::failedValidation($validator, [], 'Validation Error', 422);
     }
 }

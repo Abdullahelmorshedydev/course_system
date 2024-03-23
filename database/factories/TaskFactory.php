@@ -18,7 +18,7 @@ class TaskFactory extends Factory
     {
         return [
             'user_id' => rand(1, 5),
-            'session_id' => rand(2, 6),
+            'session_id' => rand(1, 5),
             'task' => fake()->word(),
             'deadline' => fake()->date(),
             'evaluate' => 4,

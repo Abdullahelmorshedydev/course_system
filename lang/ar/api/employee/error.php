@@ -131,5 +131,9 @@ return [
     'permission_valid_required' => 'الصلاحية مطلوبة',
     'permission_valid_array' => 'الصلاحيات يجب ان تكون مجموعة',
     'permission_valid_exists' => 'الصلاحية غير موجودة فى سجلاتنا',
+    'facebook_link_valid_required' => 'رابط فيس بوك مطلوب',
+    'facebook_link_valid_string' => 'رابط فيس بوك يجب ان يكون نص',
+    'facebook_link_valid_min' => 'رابط فيس بوك من 3 الى 255 حرف',
+    'facebook_link_valid_max' => 'رابط فيس بوك من 3 الى 255 حرف',
 
 ];

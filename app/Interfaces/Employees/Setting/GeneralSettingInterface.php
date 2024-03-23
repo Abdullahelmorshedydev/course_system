@@ -1,10 +1,10 @@
 <?php 
 
-namespace App\Interfaces\Employees;
+namespace App\Interfaces\Employees\Setting;
 
 use Illuminate\Database\Eloquent\Model;
 
-interface SettingsInterface
+interface GeneralSettingInterface
 {
     public function index();
     public function update(array $data);

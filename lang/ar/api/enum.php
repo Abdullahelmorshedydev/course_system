@@ -15,5 +15,10 @@ return [
     'country' => 'دولة',
     'instructor' => 'المحاضر',
     'mentor' => 'المساعد',
+    'file' => 'ملف',
+    'text' => 'مقال',
+    'files' => 'ملفات',
+    'general' => 'عامة',
+    'links' => 'روابط',
 
 ];

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('key');
             $table->text('value');
+            $table->tinyInteger('type');
+            $table->tinyInteger('group');
             $table->timestamps();
         });
     }
